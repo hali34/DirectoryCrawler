@@ -41,6 +41,6 @@ class DirectoryCrawler:
 
 if __name__ == "__main__":
     base_url = input("Enter the target base URL (e.g., http://example.com/): ").strip()
-    directory_list_file = "C:/Users/humza/Downloads/Final/directory-list-1.0.txt"
+    directory_list_file = "https://raw.githubusercontent.com/hali34/DirectoryCrawler/main/directory-list-1.0.txt"
     crawler = DirectoryCrawler(base_url, directory_list_file)
     crawler.crawl()
