@@ -1,1 +1,4 @@
 # DirectoryCrawler
+This Python script is a directory crawler designed to discover accessible directories on a web server by testing paths from a predefined file containing directory names. The script uses the requests library for sending HTTP GET requests and the urllib.parse module to construct valid URLs by combining the base URL with directory paths. It identifies accessible directories based on HTTP status codes (e.g., 200 for successful responses or 302 for redirects) and logs them for further analysis, saving the results to a file.
+
+The requests library simplifies HTTP interactions with features like timeouts, exception handling, and intuitive methods for web requests. the user inputs the base URL and the program checks it against all the directories provided in the wordlist. this program can be useful for security professionals.
