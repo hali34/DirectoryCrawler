@@ -8,9 +8,16 @@ class DirectoryCrawler:
         self.discovered_paths = []
 
     def load_directories(self):
-        with open(self.directory_list_file, 'r') as file:
-            directories = [line.strip() for line in file.readlines()]
-        return directories
+    try:
+        print(f"[*] Downloading directory list from: {self.directory_list_url}")
+        response = requests.get(self.directory_list_url, timeout=10)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        directories = response.text.splitlines()
+        print("[+] Directory list downloaded successfully.")
+        return [line.strip() for line in directories if line.strip()]
+    except requests.RequestException as e:
+        print(f"Error downloading directory list: {e}")
+        return []
 
     def test_directories(self, directories):
         for directory in directories:
